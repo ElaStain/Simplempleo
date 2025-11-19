@@ -1,0 +1,74 @@
+/* frontend/src/components/layout/Footer/Footer.css */
+.footer {
+  background-color: var(--dark-gray);
+  padding: 2rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: var(--light-text);
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--purple);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--light-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--purple);
+}
+
+.copyright {
+  text-align: center;
+  color: var(--light-text);
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Media Queries específicas del footer */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer-links {
+    order: 2;
+  }
+  
+  .copyright {
+    order: 3;
+  }
+  
+  .social-links {
+    order: 1;
+  }
+}
