@@ -1,23 +1,24 @@
 # Simplempleo
-*Plataforma web de reclutamiento para PyMES con reducción de sesgos.*
+*Ecosistema web de reclutamiento para PyMES con reducción de sesgos.*
 
 ### 🚀 Stack 
 - **Frontend**: React.js
-- **Backend**: Flask (Python)
-- **Base de Datos**: MongoDB 
-- **Deploy**: Render.com
+- **Backend**: Django (Python)
+- **Base de Datos**: MongoDB Atlas
+- **Deploy**: Render.com 
+- **Dominio y host**: Ionos
 
 ### 📋 Instalación y Desarrollo
 
-### Backend
+**Backend (Django)**
 ```bash
 cd backend
 pip install -r requirements.txt
-python app.py
+python manage.py runserver
 ```
-### Frontend
-```
-bash
+**Frontend (React)**
+```bash
 cd frontend
 npm install
 npm start
+```
