@@ -1,20 +1,22 @@
-import os
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import os
+from dotenv import load_dotenv
 
-def get_mongodb_client():
-    uri = os.getenv('MONGODB_URI', 'mongodb+srv://fullstack:TJWEq6PsSwEjXdLh@simplempleorec.2bm1on5.mongodb.net/?appName=SimplempleoRec')
-    
-    client = MongoClient(uri, server_api=ServerApi('1'))
-    
-    try:
-        client.admin.command('ping')
-        print("✅ MongoDB conectado para Django!")
-        return client
-    except Exception as e:
-        print(f"❌ Error MongoDB: {e}")
-        return None
+# Cargar variables del archivo .env
+load_dotenv()
 
-# Cliente global
-mongodb_client = get_mongodb_client()
-db = mongodb_client['nombre_de_tu_db'] if mongodb_client else None
+# Obtener la URI desde variables de entorno
+uri = os.getenv("MONGODB_URI")
+
+if not uri:
+    raise ValueError("❌ MONGODB_URI no encontrada en variables de entorno")
+
+client = MongoClient(uri, server_api=ServerApi('1'))
+db = client.simplempleoCloud
+
+try:
+    client.admin.command('ping')
+    print("✅ Conectado a MongoDB Atlas - simplempleoCloud")
+except Exception as e:
+    print(f"❌ Error: {e}")
