@@ -38,6 +38,11 @@ const WelcomePage = ({ darkMode, toggleDarkMode }) => {
                       Estoy buscando trabajo
                   </button>
                 </Link>
+                <Link to="/registro-empresa">
+                  <button className="btn btn-employe">
+                    Busco trabajadores
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
