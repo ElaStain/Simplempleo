@@ -1,7 +1,7 @@
 // frontend/src/components/pages/WelcomePage.js
 import React, { useState, useEffect } from 'react';
 import './WelcomePage.css';
-
+import { Link } from "react-router-dom";
 
 
 const WelcomePage = ({ darkMode, toggleDarkMode }) => {
@@ -33,8 +33,11 @@ const WelcomePage = ({ darkMode, toggleDarkMode }) => {
               <h1>Únete a nuestra plataforma</h1>
               <p>Conectamos talento con oportunidades. Ya sea que busques trabajo o necesites encontrar al candidato perfecto, estamos aquí para ayudarte.</p>
               <div className="button-container">
-                <button className="btn btn-candidate">Soy candidato buscando trabajo</button>
-                <button className="btn btn-employer">Soy emprendedor buscando empleados</button>
+                <Link to="/registro-candidato">
+                  <button className="btn btn-candidate">
+                      Estoy buscando trabajo
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
