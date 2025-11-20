@@ -26,8 +26,8 @@ export default function CandidateRegister() {
   };
 
   return (
-    <div className="register-container">
-      <h2 className="register-title">Registro de Candidato</h2>
+    <div id="candidate-register-only" className="register-container">
+      <h2 className="register-title">REGÍSTRATE</h2>
 
       <form className="register-form" onSubmit={handleSubmit}>
         
@@ -41,7 +41,7 @@ export default function CandidateRegister() {
           required
         />
         <small className="note">
-          ⚠️ Por ahora, recomendamos no usar tu nombre completo.
+          Este será tu nombre público, te recomendamos no usar tu nombre completo.
         </small>
 
         <label>Correo electrónico</label>
