@@ -20,11 +20,32 @@ export default function CompaniesRegister() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("DATA EMPRESA LISTA PARA ENVIAR:", formData);
-    // 👉 POST /api/companies aquí
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  try {
+    const response = await fetch('http://localhost:8000/api/companies/', {  // Puerto Django
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    
+    if (response.ok) {
+      console.log('✅ Empresa registrada:', result);
+      alert('Empresa registrada exitosamente');
+    } else {
+      console.error('❌ Error:', result.error);
+      alert('Error: ' + result.error);
+    }
+  } catch (error) {
+    console.error('❌ Error de conexión:', error);
+    alert('Error de conexión con el servidor');
+  }
+};
 
   return (
     <div className="register-container">

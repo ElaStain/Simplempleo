@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('health/', health_check, name='health'),
-    path('api/', api_welcome, name='api_welcome'),  # ✅ Agregado aquí
+    path('api/', api_welcome, name='api_welcome'), 
+    path('', include('companies.urls')),
 ]
