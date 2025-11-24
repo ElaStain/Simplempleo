@@ -53,7 +53,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'simplempleoCloud',
         'CLIENT': {
-            'host': 'tu-connection-string-de-atlas'
+            'host': 'mongodb+srv://fullstack:TJWEq6PsSwEjXdLh@simplempleorec.2bm1on5.mongodb.net//simplempleoCloud?retryWrites=true&w=majority',
         }
     }
 }
