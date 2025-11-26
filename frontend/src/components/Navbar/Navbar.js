@@ -1,5 +1,6 @@
-// frontend/src/components/layout/Header/Navbar.js
+// frontend/src/components/Navbar/Navbar.js
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css'; 
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
@@ -19,7 +20,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           </button>
           {menuOpen && (
             <div className="dropdown-menu">
-              <a href="#about">Sobre Nosotros</a>
+              <Link to="/about" onClick={() => setMenuOpen(false)}>Sobre Nosotros</Link>
               <a href="#blog">Blog</a>
               <a href="#vacancies">Vacantes</a>
               <div className="theme-toggle">

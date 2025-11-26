@@ -1,3 +1,4 @@
+// frontend/src/App.js
 import React from "react";
 import Navbar from "./components/Navbar/Navbar.js";
 import Footer from "./components/Footer/Footer.js";
@@ -9,7 +10,7 @@ function App() {
     <div className="app light-mode">
       <Navbar />
       <main style={{ flex: 1 }}>
-        <AppRouter /> {/* Aquí ya no envuelvas en BrowserRouter */}
+        <AppRouter />
       </main>
       <Footer />
     </div>
