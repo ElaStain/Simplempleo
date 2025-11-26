@@ -1,6 +1,6 @@
 /* AboutUs.css */
 .about-container {
-  max-width: auto;
+  max-width:auto;
   margin: 0 auto;
   padding: 2rem;
   color: var(--light-text);
@@ -22,14 +22,18 @@
 
 .logo-container {
   margin: 2rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 .company-logo {
   max-width: 200px;
   height: auto;
   border-radius: 10px;
+  display: block;
+  max-height: 150px;
+  object-fit: contain;
 }
-
 .hero-section p {
   font-size: 1.2rem;
   color: var(--light-text);
@@ -101,3 +105,4 @@
 .mop-section a:hover {
   background: #4a10c7;
 }
+
