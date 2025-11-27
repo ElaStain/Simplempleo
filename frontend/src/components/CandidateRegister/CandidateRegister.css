@@ -3,16 +3,22 @@
   width: 600px auto;
   margin: 50px auto;
   padding: 40px;
-  background: white;
+  
+  /* 🔥 Solo cambiamos esto: */
+  background: #3a3a3a;   /* gris oscuro suave en vez de blanco */
+  color: #e8e8e8;        /* texto claro */
+
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   font-family: Arial, sans-serif;
 }
 
 #candidate-register-only .register-title {
   text-align: center;
   margin-bottom: 30px;
-  color: #333;
+  
+  /* 🔥 Ajuste mínimo: */
+  color: #f5f5f5;        /* antes #333 */
   font-size: 24px;
 }
 
@@ -26,10 +32,14 @@
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #555;
+
+  /* 🔥 Ajuste muy pequeño */
+  color: #e0e0e0;        /* antes #555 */
+  
   font-size: 14px;
 }
 
+/* Inputs quedan EXACTAMENTE iguales */
 #candidate-register-only input[type="text"],
 #candidate-register-only input[type="email"],
 #candidate-register-only input[type="tel"],
@@ -42,4 +52,14 @@
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+body #root #candidate-register-only {
+  background: #323232 !important;
+  color: #e8e8e8 !important;
+}
+
+body #root #candidate-register-only label,
+body #root #candidate-register-only .register-title {
+  color: #e8e8e8 !important;
 }
