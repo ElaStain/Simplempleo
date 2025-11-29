@@ -3,6 +3,7 @@
   margin: 2rem auto;
   padding: 1rem;
   background: transparent !important;
+  margin-top: 80px; /* 🔥 Nuevo: espacio para el navbar */
 }
 
 .profile-header {
@@ -36,7 +37,6 @@
   font-size: 0.9rem;
   font-weight: 600;
 }
-
 .edit-btn:hover {
   background-color: #4a12c2;
 }
