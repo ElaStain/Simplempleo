@@ -27,7 +27,6 @@ export default function CompaniesRegister({ onRegisterSuccess }) {
     setIsLoading(true);
     
     try {
-      // Simulación de llamada al backend
       console.log('📤 Enviando datos al servidor...', formData);
       
       // Simulamos un delay de red
@@ -48,12 +47,18 @@ export default function CompaniesRegister({ onRegisterSuccess }) {
       localStorage.setItem('companyId', mockResponse.id);
       localStorage.setItem('authToken', 'mock-token-' + Date.now());
       
+      // DEBUG: Verificar si la prop existe
+      console.log('🔍 onRegisterSuccess:', onRegisterSuccess);
+      
       // Mostrar alerta de éxito
       alert('🎉 Empresa registrada exitosamente! Redirigiendo al perfil...');
       
       // Redirigir al perfil
       if (onRegisterSuccess) {
+        console.log('📍 Llamando a onRegisterSuccess...');
         onRegisterSuccess();
+      } else {
+        console.error('❌ onRegisterSuccess no está definido!');
       }
       
     } catch (error) {

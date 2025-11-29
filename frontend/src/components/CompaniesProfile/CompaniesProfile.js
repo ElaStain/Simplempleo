@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./CompaniesProfile.css";
 
-export default function CompaniesProfile() {
+export default function CompaniesProfile({ onBackToRouter }) {
   const [formData, setFormData] = useState({
     company_name: "",
     industry: "",
@@ -24,28 +24,20 @@ export default function CompaniesProfile() {
 
   const fetchCompanyProfile = async () => {
     try {
-      // En una implementación real, obtendrías el ID de la empresa del contexto o localStorage
-      const companyId = localStorage.getItem('companyId');
-      const token = localStorage.getItem('authToken');
+      // Simulamos la carga de datos desde localStorage
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      const response = await fetch(`http://localhost:8000/api/companies/${companyId}/`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const companyData = await response.json();
+      const savedCompanyData = localStorage.getItem('companyData');
+      
+      if (savedCompanyData) {
+        const companyData = JSON.parse(savedCompanyData);
         setFormData(companyData);
+        console.log('✅ Perfil cargado:', companyData);
       } else {
-        console.error('❌ Error al cargar el perfil');
-        alert('Error al cargar los datos del perfil');
+        console.log('📝 No hay datos guardados, mostrando formulario vacío');
       }
     } catch (error) {
-      console.error('❌ Error de conexión:', error);
-      alert('Error de conexión con el servidor');
+      console.error('❌ Error al cargar el perfil:', error);
     } finally {
       setIsLoading(false);
     }
@@ -60,31 +52,21 @@ export default function CompaniesProfile() {
     e.preventDefault();
     
     try {
-      const companyId = localStorage.getItem('companyId');
-      const token = localStorage.getItem('authToken');
+      // Simulación de actualización en el backend
+      console.log('📤 Actualizando perfil...', formData);
       
-      const response = await fetch(`http://localhost:8000/api/companies/${companyId}/`, {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const result = await response.json();
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      if (response.ok) {
-        console.log('✅ Perfil actualizado:', result);
-        alert('Perfil actualizado exitosamente');
-        setIsEditing(false);
-      } else {
-        console.error('❌ Error:', result.error);
-        alert('Error: ' + result.error);
-      }
+      // Guardar datos actualizados en localStorage
+      localStorage.setItem('companyData', JSON.stringify(formData));
+      
+      console.log('✅ Perfil actualizado exitosamente');
+      alert('✅ Perfil actualizado exitosamente');
+      setIsEditing(false);
+      
     } catch (error) {
-      console.error('❌ Error de conexión:', error);
-      alert('Error de conexión con el servidor');
+      console.error('❌ Error al actualizar:', error);
+      alert('❌ Error al actualizar el perfil');
     }
   };
 
@@ -110,11 +92,16 @@ export default function CompaniesProfile() {
     <div className="profile-container">
       <div className="profile-header">
         <h2>PERFIL DE LA EMPRESA</h2>
-        {!isEditing && (
-          <button className="edit-btn" onClick={handleEdit}>
-            Editar Perfil
+        <div className="header-actions">
+          {!isEditing && (
+            <button className="edit-btn" onClick={handleEdit}>
+              Editar Perfil
+            </button>
+          )}
+          <button className="back-btn" onClick={onBackToRouter}>
+            ← Volver al Inicio
           </button>
-        )}
+        </div>
       </div>
 
       <form className="profile-form" onSubmit={handleSubmit}>
