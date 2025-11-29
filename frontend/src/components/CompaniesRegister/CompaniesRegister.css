@@ -10,7 +10,6 @@ main, .App, .app, .layout {
   background: transparent !important;
 }
 
-
 /* Fondo global */
 body {
   background-color:#242424;
@@ -22,6 +21,13 @@ body {
   margin: 4rem auto;
   padding: 1rem;
   background: transparent !important; 
+}
+
+.register-container h2 {
+  text-align: center;
+  color: var(--light-text);
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .register-form {
@@ -45,15 +51,29 @@ body {
 .form-section textarea {
   padding: 0.75rem;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   font-size: 1rem;
   width: 100%;
   box-sizing: border-box;
+  background-color: #333;
+  color: var(--light-text);
+}
+
+.form-section input:disabled,
+.form-section textarea:disabled {
+  background-color: #444;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.form-section input::placeholder,
+.form-section textarea::placeholder {
+  color: #888;
 }
 
 /* Botón solo en la sección del reclutador */
 .submit-btn {
-  padding: 1rem;
+  padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 8px;
@@ -64,11 +84,29 @@ body {
   transition: all 0.3s ease;
   margin-top: 1rem;
   align-self: flex-start;
+  min-width: 200px;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
   background-color: #4a12c2;
   transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-message {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 0.9rem;
 }
 
 /* Desktop: secciones lado a lado, más espacio */
@@ -87,12 +125,39 @@ body {
 .form-section h3 {
   color: var(--light-text);
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 }
 
 .form-section label {
   color: var(--light-text);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
 .form-section small {
   color: #ccc; /* notas más suaves */
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+}
+
+.form-section span {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.form-section a {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.form-section a:hover {
+  text-decoration: underline;
+}
+
+/* Mejoras para textarea */
+.form-section textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
 }

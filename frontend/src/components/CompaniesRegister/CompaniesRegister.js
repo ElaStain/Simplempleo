@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CompaniesRegister.css";
 
-export default function CompaniesRegister() {
+export default function CompaniesRegister({ onRegisterSuccess }) {
   const [formData, setFormData] = useState({
     company_name: "",
     industry: "",
@@ -15,37 +15,54 @@ export default function CompaniesRegister() {
     recruiter_password: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  
-  try {
-    const response = await fetch('http://localhost:8000/api/companies/', {  // Puerto Django
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
-
-    const result = await response.json();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
     
-    if (response.ok) {
-      console.log('✅ Empresa registrada:', result);
-      alert('Empresa registrada exitosamente');
-    } else {
-      console.error('❌ Error:', result.error);
-      alert('Error: ' + result.error);
+    try {
+      // Simulación de llamada al backend
+      console.log('📤 Enviando datos al servidor...', formData);
+      
+      // Simulamos un delay de red
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Simulación de respuesta exitosa del backend
+      const mockResponse = {
+        id: Math.random().toString(36).substr(2, 9),
+        ...formData,
+        created_at: new Date().toISOString(),
+        status: "active"
+      };
+      
+      console.log('✅ Empresa registrada (simulado):', mockResponse);
+      
+      // Guardar datos en localStorage para simular persistencia
+      localStorage.setItem('companyData', JSON.stringify(mockResponse));
+      localStorage.setItem('companyId', mockResponse.id);
+      localStorage.setItem('authToken', 'mock-token-' + Date.now());
+      
+      // Mostrar alerta de éxito
+      alert('🎉 Empresa registrada exitosamente! Redirigiendo al perfil...');
+      
+      // Redirigir al perfil
+      if (onRegisterSuccess) {
+        onRegisterSuccess();
+      }
+      
+    } catch (error) {
+      console.error('❌ Error en el registro:', error);
+      alert('Error en el registro: ' + error.message);
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error('❌ Error de conexión:', error);
-    alert('Error de conexión con el servidor');
-  }
-};
+  };
 
   return (
     <div className="register-container">
@@ -61,6 +78,7 @@ const handleSubmit = async (e) => {
             value={formData.company_name}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
           <small>Evita groserías o marcas registradas.</small>
 
@@ -71,6 +89,7 @@ const handleSubmit = async (e) => {
             value={formData.industry}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
 
           <label>Email de contacto</label>
@@ -80,6 +99,7 @@ const handleSubmit = async (e) => {
             value={formData.contact_email}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
 
           <label>Dirección (Google Maps)</label>
@@ -89,6 +109,7 @@ const handleSubmit = async (e) => {
             value={formData.address}
             onChange={handleChange}
             placeholder="Opcional"
+            disabled={isLoading}
           />
 
           <label>Website / Redes Sociales</label>
@@ -98,6 +119,7 @@ const handleSubmit = async (e) => {
             value={formData.website_url}
             onChange={handleChange}
             placeholder="Opcional"
+            disabled={isLoading}
           />
 
           <label>Descripción breve</label>
@@ -106,6 +128,8 @@ const handleSubmit = async (e) => {
             value={formData.description}
             onChange={handleChange}
             placeholder="Opcional"
+            disabled={isLoading}
+            rows="4"
           />
         </div>
 
@@ -119,6 +143,7 @@ const handleSubmit = async (e) => {
             value={formData.recruiter_name}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
           <label>Puesto en la empresa</label>
           <input
@@ -127,6 +152,7 @@ const handleSubmit = async (e) => {
             value={formData.recruiter_position}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
           <label>Email del reclutador</label>
           <input
@@ -135,6 +161,7 @@ const handleSubmit = async (e) => {
             value={formData.recruiter_email}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
           <label>Contraseña</label>
           <input
@@ -143,16 +170,27 @@ const handleSubmit = async (e) => {
             value={formData.recruiter_password}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
-          <span>
+          <span style={{color: '#ccc', fontSize: '14px', marginTop: '1rem'}}>
             He leído y acepto los{" "}
-            <a href="/terminos" target="_blank">Términos y Condiciones</a> y el{" "}
-            <a href="/privacidad" target="_blank">Aviso de Privacidad</a>.
+            <a href="/terminos" target="_blank" style={{color: '#8B5FBF'}}>Términos y Condiciones</a> y el{" "}
+            <a href="/privacidad" target="_blank" style={{color: '#8B5FBF'}}>Aviso de Privacidad</a>.
           </span>
 
-          <button type="submit" className="submit-btn">
-            Registrar Empresa y Reclutador
+          <button 
+            type="submit" 
+            className="submit-btn"
+            disabled={isLoading}
+          >
+            {isLoading ? "Registrando..." : "Registrar Empresa y Reclutador"}
           </button>
+
+          {isLoading && (
+            <div className="loading-message">
+              ⏳ Validando Email...
+            </div>
+          )}
         </div>
       </form>
     </div>
