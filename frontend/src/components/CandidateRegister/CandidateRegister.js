@@ -20,17 +20,28 @@ export default function CandidateRegister() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // 👉 Aquí luego conectamos con el backend Django (POST /api/register)
     console.log("DATA LISTA PARA ENVIAR:", formData);
   };
+
+  // 👉 Texto legal, ahora en variable para estilizar sin riesgos
+  const legalText = (
+    <div className="legal-text">
+      He leído y acepto los{" "}
+      <a className="legal-link" href="/terminos" target="_blank">
+        Términos y Condiciones
+      </a>{" "}
+      y el{" "}
+      <a className="legal-link" href="/privacidad" target="_blank">
+        Aviso de Privacidad
+      </a>.
+    </div>
+  );
 
   return (
     <div id="candidate-register-only" className="register-container">
       <h2 className="register-title">REGÍSTRATE</h2>
 
       <form className="register-form" onSubmit={handleSubmit}>
-        
         <label>Nombre de usuario (Nombre + Apellido)</label>
         <input
           type="text"
@@ -77,6 +88,7 @@ export default function CandidateRegister() {
           Debe incluir mayúsculas, minúsculas, números y un signo.
         </small>
 
+        {/* FIX: este div estaba mal cerrado */}
         <div className="checkbox-container">
           <input
             type="checkbox"
@@ -85,11 +97,8 @@ export default function CandidateRegister() {
             onChange={handleChange}
             required
           />
-          <span>
-            He leído y acepto los{" "}
-            <a href="/terminos" target="_blank">Términos y Condiciones</a> y el{" "}
-            <a href="/privacidad" target="_blank">Aviso de Privacidad</a>.
-          </span>
+
+          {legalText}
         </div>
 
         <button type="submit" className="submit-btn">

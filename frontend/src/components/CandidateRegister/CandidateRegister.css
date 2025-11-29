@@ -53,6 +53,21 @@
   font-size: 16px;
   box-sizing: border-box;
 }
+.legal-text {
+  color: #bbbbbb;
+  font-size: 0.85rem;
+  margin-left: 8px;
+}
+
+.legal-link {
+  color: #5e17eb;
+  text-decoration: none;
+}
+
+.legal-link:hover {
+  color:#5e17eb;
+  text-decoration: underline;
+}
 
 body #root #candidate-register-only {
   background: #323232 !important;
@@ -61,5 +76,5 @@ body #root #candidate-register-only {
 
 body #root #candidate-register-only label,
 body #root #candidate-register-only .register-title {
-  color: #e8e8e8 !important;
+  color: #afafaf !important;
 }
