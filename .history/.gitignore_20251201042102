@@ -1,0 +1,18 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables - ¡ESTO ES CLAVE!
+.env
+.env.local
+.env.production
+.env.development
