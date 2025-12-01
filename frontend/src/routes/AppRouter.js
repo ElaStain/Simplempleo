@@ -4,6 +4,7 @@ import CandidateRegister from "../components/CandidateRegister/CandidateRegister
 import CompaniesRegister from "../components/CompaniesRegister/CompaniesRegister.js"; 
 import AboutUs from '../components/AboutUs/AboutUs';
 import CreateJobForm from '../components/JobForms/CreateJobForms';
+import JobCards from "../components/JobCards/JobCards.jsx";
 
 export default function AppRouter({ onRegisterSuccess }) {
   return (
@@ -16,6 +17,7 @@ export default function AppRouter({ onRegisterSuccess }) {
       />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/create-job" element={<CreateJobForm />} />
+      <Route path="/jobs" element={<JobCards />} />
     </Routes>
   );
 }

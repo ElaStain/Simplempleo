@@ -41,7 +41,7 @@ export default function JobCards() {
     <div className="jobs-page">
       <header className="jobs-header">
         <h1>Vacantes disponibles</h1>
-        <p className="subtitle">Explora oportunidades en pymes locales — demo ficticio</p>
+        <p className="subtitle">Explora oportunidades en pymes locales</p>
       </header>
 
       <section className="jobs-grid">
@@ -69,9 +69,6 @@ export default function JobCards() {
         ))}
       </section>
 
-      <footer className="jobs-footer">
-        <p>Solo la vacante de <strong>SimpleEmpleo</strong> abre en esta demo.</p>
-      </footer>
     </div>
   );
 }
