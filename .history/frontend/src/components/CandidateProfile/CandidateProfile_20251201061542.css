@@ -11,7 +11,6 @@
   max-width: 900px;
   margin: auto;
   padding: 2rem;
-  margin-top: 6rem; /* espacio respecto al navbar */
 }
 
 .profile-card {
@@ -60,18 +59,8 @@
   cursor: pointer;
   background-color: var(--purple);
   color: var(--white);
-  transition: background-color 0.2s ease;
 }
 
-.public-buttons button:hover,
-.private-buttons button:hover {
-  background-color: #450f9e;
-}
-
-.private-buttons button.cancel-btn {
+.private-buttons button[type="button"] {
   background-color: var(--medium-gray);
-}
-
-.private-buttons button.cancel-btn:hover {
-  background-color: #2a2a2a;
 }
