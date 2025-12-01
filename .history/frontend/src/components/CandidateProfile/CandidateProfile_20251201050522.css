@@ -4,9 +4,6 @@
   padding: 2rem;
   flex-wrap: wrap;
   justify-content: center;
-
-  /* Ajuste para no tapar contenido por navbar */
-  margin-top: 80px; /* ajusta este valor según altura de tu navbar */
 }
 
 .profile-card {
@@ -36,9 +33,6 @@
 .profile-card .message {
   font-size: 0.95rem;
   color: var(--light-gray);
-
-  /* Mensaje en cursiva */
-  font-style: italic;
 }
 
 .profile-card input {
