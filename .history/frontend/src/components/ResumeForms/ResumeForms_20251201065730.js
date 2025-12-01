@@ -28,7 +28,7 @@ export default function ResumeForms() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("CV listo para enviar:", formData);
-    alert("¡CV guardado!");
+    alert("¡CV guardado localmente!");
     navigate("/candidate-profile"); // Regresa al perfil del candidato
   };
 
