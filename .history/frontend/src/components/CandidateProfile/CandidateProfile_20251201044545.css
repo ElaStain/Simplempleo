@@ -1,0 +1,63 @@
+.candidate-profile-page {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.profile-card {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--dark-gray);
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--purple);
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.message {
+  font-size: 0.95rem;
+  color: var(--light-text);
+}
+
+.btn-edit {
+  margin-top: auto;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: var(--purple);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-edit:hover {
+  background-color: #4912b8; /* un tono más oscuro de morado */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+  }
+}
