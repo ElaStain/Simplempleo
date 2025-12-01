@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CompaniesProfile.css";
 
 export default function CompaniesProfile({ onBackToRouter }) {
@@ -16,25 +17,26 @@ export default function CompaniesProfile({ onBackToRouter }) {
 
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeView, setActiveView] = useState("profile"); // "profile" | "createJob" | "editJobs"
 
-  // Cargar datos del perfil al montar el componente
+  const navigate = useNavigate();
+
+  // Cargar datos del perfil
   useEffect(() => {
     fetchCompanyProfile();
   }, []);
 
   const fetchCompanyProfile = async () => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      const savedCompanyData = localStorage.getItem('companyData');
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const savedCompanyData = localStorage.getItem("companyData");
+
       if (savedCompanyData) {
         const companyData = JSON.parse(savedCompanyData);
         setFormData(companyData);
-        console.log('✅ Perfil cargado:', companyData);
+        console.log("✅ Perfil cargado:", companyData);
       }
     } catch (error) {
-      console.error('❌ Error al cargar el perfil:', error);
+      console.error("❌ Error al cargar el perfil:", error);
     } finally {
       setIsLoading(false);
     }
@@ -47,17 +49,17 @@ export default function CompaniesProfile({ onBackToRouter }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      console.log('📤 Actualizando perfil...', formData);
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      localStorage.setItem('companyData', JSON.stringify(formData));
-      console.log('✅ Perfil actualizado exitosamente');
-      alert('✅ Perfil actualizado exitosamente');
+      console.log("📤 Actualizando perfil...", formData);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      localStorage.setItem("companyData", JSON.stringify(formData));
+      console.log("✅ Perfil actualizado exitosamente");
+      alert("✅ Perfil actualizado exitosamente");
       setIsEditing(false);
     } catch (error) {
-      console.error('❌ Error al actualizar:', error);
-      alert('❌ Error al actualizar el perfil');
+      console.error("❌ Error al actualizar:", error);
+      alert("❌ Error al actualizar el perfil");
     }
   };
 
@@ -66,21 +68,9 @@ export default function CompaniesProfile({ onBackToRouter }) {
     setIsEditing(false);
   };
 
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  // Funciones para las vistas de vacantes
+  // 🔥 FIX PARA DEMO: forzar navegación real
   const handleCreateJob = () => {
-    setActiveView("createJob");
-  };
-
-  const handleEditJobs = () => {
-    setActiveView("editJobs");
-  };
-
-  const handleBackToProfile = () => {
-    setActiveView("profile");
+    window.location.href = "/create-job";
   };
 
   if (isLoading) {
@@ -91,30 +81,10 @@ export default function CompaniesProfile({ onBackToRouter }) {
     );
   }
 
-  // Vista de crear/editar vacantes (placeholder por ahora)
-  if (activeView === "createJob" || activeView === "editJobs") {
-    return (
-      <div className="profile-container">
-        <div className="vacancies-view">
-          <div className="vacancies-header">
-            <button className="back-btn" onClick={handleBackToProfile}>
-              ← Volver al Perfil
-            </button>
-            <h2>{activeView === "createJob" ? "Crear Nueva Vacante" : "Editar Vacantes"}</h2>
-          </div>
-          <div className="vacancies-content">
-            <p>🚧 Formulario de vacantes en construcción...</p>
-            <p>Aquí irá el formulario para {activeView === "createJob" ? "crear" : "editar"} vacantes</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="profile-container">
       <div className="profile-layout">
-        {/* Columna izquierda - Bienvenida y acciones */}
+        {/* Columna izquierda */}
         <div className="left-column">
           <div className="welcome-section">
             <h2>Te damos la bienvenida,</h2>
@@ -126,19 +96,16 @@ export default function CompaniesProfile({ onBackToRouter }) {
             <button className="action-btn primary" onClick={handleCreateJob}>
               📄 Crear Vacante
             </button>
-            <button className="action-btn secondary" onClick={handleEditJobs}>
-              ✏️ Editar Vacantes
-            </button>
           </div>
         </div>
 
-        {/* Columna derecha - Datos del perfil */}
+        {/* Columna derecha */}
         <div className="right-column">
           <div className="profile-header">
             <h2>Perfil de la Empresa</h2>
             <div className="header-actions">
               {!isEditing ? (
-                <button className="edit-btn" onClick={handleEdit}>
+                <button className="edit-btn" onClick={() => setIsEditing(true)}>
                   Editar Perfil
                 </button>
               ) : (
@@ -146,11 +113,16 @@ export default function CompaniesProfile({ onBackToRouter }) {
                   <button type="submit" form="profile-form" className="save-btn">
                     Guardar
                   </button>
-                  <button type="button" className="cancel-btn" onClick={handleCancel}>
+                  <button
+                    type="button"
+                    className="cancel-btn"
+                    onClick={handleCancel}
+                  >
                     Cancelar
                   </button>
                 </div>
               )}
+
               <button className="back-btn" onClick={onBackToRouter}>
                 ← Volver al Inicio
               </button>
@@ -159,10 +131,10 @@ export default function CompaniesProfile({ onBackToRouter }) {
 
           <form id="profile-form" className="profile-form" onSubmit={handleSubmit}>
             <div className="form-section combined-section">
-              {/* Datos de la Empresa */}
+              {/* Datos de la empresa */}
               <div className="form-subsection">
                 <h3>Datos de la Empresa</h3>
-                
+
                 <div className="form-group">
                   <label>Nombre de la empresa</label>
                   <input
@@ -231,16 +203,16 @@ export default function CompaniesProfile({ onBackToRouter }) {
                     value={formData.description}
                     onChange={handleChange}
                     disabled={!isEditing}
-                    placeholder="Opcional"
                     rows="3"
+                    placeholder="Opcional"
                   />
                 </div>
               </div>
 
-              {/* Datos del Reclutador */}
+              {/* Datos del reclutador */}
               <div className="form-subsection">
                 <h3>Datos del Reclutador</h3>
-                
+
                 <div className="form-group">
                   <label>Nombre completo</label>
                   <input

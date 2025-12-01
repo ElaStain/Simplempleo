@@ -3,6 +3,7 @@ import WelcomePage from "../components/WelcomePage/WelcomePage.js";
 import CandidateRegister from "../components/CandidateRegister/CandidateRegister.js";
 import CompaniesRegister from "../components/CompaniesRegister/CompaniesRegister.js"; 
 import AboutUs from '../components/AboutUs/AboutUs';
+import CreateJobForm from '../components/JobForms/CreateJobForms';
 
 export default function AppRouter({ onRegisterSuccess }) {
   return (
@@ -11,11 +12,10 @@ export default function AppRouter({ onRegisterSuccess }) {
       <Route path="/registro-candidato" element={<CandidateRegister />} />
       <Route 
         path="/registro-empresa" 
-        element={
-          <CompaniesRegister onRegisterSuccess={onRegisterSuccess} />
-        } 
-      /> 
+        element={<CompaniesRegister onRegisterSuccess={onRegisterSuccess} />}
+      />
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/create-job" element={<CreateJobForm />} />
     </Routes>
   );
 }

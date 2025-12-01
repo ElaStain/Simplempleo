@@ -10,7 +10,7 @@ function App() {
   const [currentView, setCurrentView] = useState('router');
 
   const handleRegisterSuccess = () => {
-    console.log('✅ handleRegisterSuccess ejecutado en App.js');
+    console.log('✅ handleRegisterSuccess ejecutado');
     setCurrentView('companiesProfile');
   };
 
@@ -25,6 +25,7 @@ function App() {
         {currentView === 'router' && (
           <AppRouter onRegisterSuccess={handleRegisterSuccess} />
         )}
+
         {currentView === 'companiesProfile' && (
           <CompaniesProfile onBackToRouter={handleBackToRouter} />
         )}
