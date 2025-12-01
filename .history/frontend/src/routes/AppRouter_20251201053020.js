@@ -6,7 +6,7 @@ import AboutUs from '../components/AboutUs/AboutUs';
 import CreateJobForm from '../components/JobForms/CreateJobForms';
 import JobCards from "../components/JobCards/JobCards.jsx";
 import CandidateProfile from "../components/CandidateProfile/CandidateProfile.js";
-import ResumeForms from "../components/ResumeForms/ResumeForms.js";
+import 
 
 export default function AppRouter({ onRegisterSuccess }) {
   return (
@@ -21,7 +21,6 @@ export default function AppRouter({ onRegisterSuccess }) {
       <Route path="/create-job" element={<CreateJobForm />} />
       <Route path="/jobs" element={<JobCards />} />
       <Route path="/candidate-profile" element={<CandidateProfile />} />
-      <Route path="/resume-forms" element={<ResumeForms />} />
     </Routes>
   );
 }

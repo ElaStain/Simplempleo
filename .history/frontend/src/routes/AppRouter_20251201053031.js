@@ -21,7 +21,7 @@ export default function AppRouter({ onRegisterSuccess }) {
       <Route path="/create-job" element={<CreateJobForm />} />
       <Route path="/jobs" element={<JobCards />} />
       <Route path="/candidate-profile" element={<CandidateProfile />} />
-      <Route path="/resume-forms" element={<ResumeForms />} />
+      
     </Routes>
   );
 }
