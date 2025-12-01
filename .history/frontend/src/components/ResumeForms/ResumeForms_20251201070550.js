@@ -32,10 +32,6 @@ export default function ResumeForms() {
     navigate("/candidate-profile"); // Regresa al perfil del candidato
   };
 
-  const handleViewJobs = () => {
-    navigate("/jobs"); // Redirige a JobCards
-  };
-
   return (
     <div className="resume-container">
       <h2>Formulario de CV</h2>
@@ -84,12 +80,15 @@ export default function ResumeForms() {
           placeholder="Ej. 2 años como cajera en tienda de conveniencia."
         />
 
-        {/* Botones uniformes */}
         <div className="buttons-container">
           <button type="submit" className="submit-btn">
             Guardar CV
           </button>
-          <button type="button" className="view-jobs-btn" onClick={handleViewJobs}>
+          <button
+            type="button"
+            className="view-jobs-btn"
+            onClick={() => navigate("/jobs")}
+          >
             Ver vacantes
           </button>
         </div>

@@ -40,7 +40,7 @@ textarea {
 .view-jobs-btn {
   flex: 1;
   padding: 0.8rem 1rem;
-  border: none;
+  border: 1;
   border-radius: 0.6rem;
   cursor: pointer;
   font-size: 1rem;

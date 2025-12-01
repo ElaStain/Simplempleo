@@ -36,19 +36,28 @@ textarea {
   resize: vertical;
 }
 
-.submit-btn,
-.view-jobs-btn {
-  flex: 1;
-  padding: 0.8rem 1rem;
-  border: none;
-  border-radius: 0.6rem;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  box-sizing: border-box; /* clave */
-  display: inline-flex;   /* centra el contenido */
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
+.submit-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: var(--purple);
+  color: var(--white);
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.view-jobs-btn {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: var(--white);
+  color: var(--purple);
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
