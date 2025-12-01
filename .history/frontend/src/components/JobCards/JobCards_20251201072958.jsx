@@ -63,7 +63,7 @@ export default function JobCards() {
 
             <div className="card-actions">
               <button className="btn-primary" onClick={() => openJob(job)}>Abrir</button>
-              <button className="btn-secondary" onClick={() => alert('Guardado en favoritos (demo)')}>Aplicar</button>
+              <button className="btn-secondary" onClick={() => alert('Guardado en favoritos (demo)')}>❤ Guardar</button>
             </div>
           </article>
         ))}

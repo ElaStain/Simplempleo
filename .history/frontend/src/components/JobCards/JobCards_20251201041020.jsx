@@ -33,7 +33,7 @@ export default function JobCards() {
     if (job.company === "SimpleEmpleo") {
       navigate("/job/simplempleo");
     } else {
-      alert(`Demo: la vacante de ${job.company} estará disponible proximamente.`);
+      alert(`Demo: la vacante de ${job.company} es ficticia — solo SimpleEmpleo abre.`);
     }
   };
 
@@ -63,7 +63,7 @@ export default function JobCards() {
 
             <div className="card-actions">
               <button className="btn-primary" onClick={() => openJob(job)}>Abrir</button>
-              <button className="btn-secondary" onClick={() => alert('Guardado en favoritos (demo)')}>Aplicar</button>
+              <button className="btn-secondary" onClick={() => alert('Guardado en favoritos (demo)')}>❤ Guardar</button>
             </div>
           </article>
         ))}
