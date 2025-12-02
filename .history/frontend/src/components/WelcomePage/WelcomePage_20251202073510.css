@@ -44,18 +44,12 @@
   line-height: 1.6;
 }
 
-/* BOTONERA CENTRADA */
 .button-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  
-  justify-content: center;  /* 🔥 CENTRADO */
-  align-items: center;      /* 🔥 CENTRADO */
-  width: 100%;
 }
 
-/* BOTONES */
 .btn {
   padding: 1rem 1.5rem;
   border: none;
@@ -64,8 +58,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 230px;      /* 🔥 Para que ambos botones se vean parejitos */
-  text-align: center;
+  min-width: 230px; /* 💜 Opcional, pero hace que se vean parejitos */
 }
 
 .btn-candidate {
@@ -90,16 +83,13 @@
   transform: translateY(-2px);
 }
 
-/* RESPONSIVE */
+/* Responsivo */
 @media (min-width: 768px) {
   .button-container {
     flex-direction: row;
-    justify-content: center;   /* 🔥 C E N T R A D O */
-    align-items: center;
-    gap: 1.5rem;
   }
 
   .btn {
-    min-width: 200px; /* Se ven más elegantes en desktop */
+    flex: 1;
   }
 }
