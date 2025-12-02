@@ -21,7 +21,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           {menuOpen && (
             <div className="dropdown-menu">
               <Link to="/about" onClick={() => setMenuOpen(false)}>Sobre Nosotros</Link>
-              <a href="#blog">Blog</a>
+              <a href="#Para inversores">Para Inversores</a>
               <a href="#vacancies">Vacantes</a>
               <div className="theme-toggle">
                 <span>Modo {darkMode ? 'Claro' : 'Oscuro'}</span>

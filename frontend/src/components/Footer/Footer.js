@@ -25,7 +25,7 @@ const Footer = () => {
           <a href="#privacy">Aviso de Privacidad</a>
           <a href="#legal">Aviso Legal</a>
           <a href="#terms">Términos y Condiciones</a>
-          <a href="mailto:info@simplempleo.com">info@simplempleo.com</a>
+          <a href="mailto:info@simplempleo@gmail.com">simplempleo@gmail.com</a>
         </div>
         
         <div className="copyright">

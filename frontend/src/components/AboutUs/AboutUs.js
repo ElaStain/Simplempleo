@@ -8,14 +8,6 @@ const AboutUs = () => {
       {/* Header/Hero Section */}
       <section className="hero-section">
         <h1>Acerca de Nosotros</h1>
-        {/* LOGO - Opción A (Recomendada) */}
-        <div className="logo-container">
-          <img 
-            src="frontend/public/images/logo_simplempleo.png"
-            alt="Simplempleo Logo" 
-            className="company-logo" 
-          />
-        </div>
         <p>Somos un ecosistema digital que simplifica el crecimiento de micro, pequeñas y medianas empresas mexicanas, a través de una plataforma accesible de reclutamiento.</p>
       </section>
 
