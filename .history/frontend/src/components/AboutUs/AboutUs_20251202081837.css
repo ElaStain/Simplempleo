@@ -1,0 +1,108 @@
+/* AboutUs.css */
+.about-container {
+  max-width:auto;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--light-text);
+  background: var(--dark-gray); /* 👈 Añade esta línea */
+  min-height: 100vh; /* 👈 Para que cubra toda la altura */
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 3rem 0;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+}
+
+.logo-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.company-logo {
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  max-height: 150px;
+  object-fit: contain;
+}
+.hero-section p {
+  font-size: 1.2rem;
+  color: var(--light-text);
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  padding: 2.5rem;
+  border-radius: 15px;
+  background: var(--medium-gray);
+  border: 1px solid #444;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card p {
+  line-height: 1.6;
+  color: var(--light-text);
+}
+
+.mop-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--medium-gray);
+  border-radius: 15px;
+}
+
+.mop-section h2 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.mop-section a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--purple);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.mop-section a:hover {
+  background: #4a10c7;
+}
+
